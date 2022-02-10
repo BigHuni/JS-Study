@@ -22,9 +22,16 @@ body {
 
 .js-form {
     position: relative;
-    margin: 100px auto;
+    align-items: center;
+    margin: 20px auto;
     width: 400px;
     height: 320px;
+}
+
+.js-beginning {
+    margin-left: 120px;
+    margin-bottom: 20px;
+    font-size: 50px;
 }
 
 h1 {
@@ -34,7 +41,10 @@ h1 {
 }
 
 input {
-    margin-bottom: 50px;
+    position: relative;
+    width: 400px;
+    height: 320px;
+    margin-bottom: 10px;
     font-size: 30px;
     background-color: wheat;
 }

@@ -1,10 +1,10 @@
-const form = document.querySelector(".js-form"), 
-    input = form.querySelector("input"), 
-    greeting = document.querySelector(".js-greeting"), 
-    button = document.querySelector("button"); 
+const form = document.querySelector(".js-form");
+const input = form.querySelector("input");
+const greeting = document.querySelector(".js-greeting");
+const button = document.querySelector("button"); 
 
 //저장할 데이터의 key값 
-const LOCAL_DATA = "nickName"; 
+const LOCAL_DATA = "Contents"; 
 
 //input태그에 이름 입력 후 input 태그를 감추고, 텍스트가 나타나게 해주는 함수 
 function hiddenAndGreeting(name) { 
@@ -12,7 +12,7 @@ function hiddenAndGreeting(name) {
     form.style.display = "none"; 
     button.style.display = "block"; 
     button.addEventListener("click", onClick); 
-    greeting.innerText = `Hi! ${name}`; } 
+    greeting.innerText = `메모: ${name}`; } 
     
 //버튼 클릭 시, 데이터 삭제 이벤트 발생 
 function onClick() { 
@@ -30,7 +30,7 @@ function onSubmit(e) {
 } 
         
 //input태그 보이게 설정, 인사 텍스트와 버튼은 숨김
-function askForNickName() { 
+function askForContents() { 
     form.style.display = "block"; 
     greeting.style.display = "none"; 
     button.style.display = "none"; 
@@ -41,8 +41,8 @@ function askForNickName() {
 function loaded() { 
     const data = localStorage.getItem(LOCAL_DATA); 
     if (data === null) { // 데이터가 없을 시 
-        askForNickName(); 
-    } else {//데이터가 이미 있을 시 
+        askForContents(); 
+    } else { //데이터가 이미 있을 시 
         hiddenAndGreeting(data); 
     } 
 } 
