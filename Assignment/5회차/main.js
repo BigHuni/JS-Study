@@ -1,6 +1,11 @@
 const modal = document.querySelector('.modal');
-const btnopen = document.querySelector('.btn-open');
+const btnOpen = document.getElementById('btn-open');
+const btnClose = document.getElementById('btn-close');
 
-btnopen.addEventListener('click', () => {
+btnOpen.addEventListener('click', () => {
     modal.style.display = 'block';
+});
+
+btnClose.addEventListener('click', () => {
+    modal.style.display = 'none';
 });
