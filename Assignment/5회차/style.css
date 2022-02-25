@@ -1,3 +1,12 @@
+h1 {
+    text-align: center;
+}
+
+li {
+    font-size: 20px;
+    padding: 10px;
+}
+
 #btn-open {
     position: relative;
     top: 50%;
@@ -11,9 +20,11 @@
 }
 
 #btn-close {
-    float: right;
-    width: 35px;
-    height: 35px;
+    position: absolute;
+    top: 5%;
+    left: 85%;
+    width: 30px;
+    height: 30px;
     border-radius: 30px;
     color: #fff;
     background-color: limegreen;
@@ -38,10 +49,9 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 400px;
+    width: 500px;
     height: 600px;
-    padding: 40px;
-    text-align: center;
+    padding: 30px;
     background-color: rgb(255, 255, 255, 0.8);
     border-radius: 10px;
     box-shadow: 0 3px 3px 0 rgb(34, 36, 30, 0.2);

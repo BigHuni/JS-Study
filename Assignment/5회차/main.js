@@ -9,3 +9,10 @@ btnOpen.addEventListener('click', () => {
 btnClose.addEventListener('click', () => {
     modal.style.display = 'none';
 });
+
+modal.addEventListener('click', (i) => {
+    const eventTarget = i.target;
+    if(eventTarget.classList.contains('modal')) {
+        modal.style.display = 'none'
+    }
+});
