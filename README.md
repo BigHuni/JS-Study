@@ -55,15 +55,15 @@
 <br>
 
 ## 🔸 과제 수행
-1회차 과제(로컬 스토리지 메모장) : https://bighuni.github.io/JS-Study/Assignment/1회차
+1회차 과제(로컬 스토리지 메모장) : https://bighuni.github.io/JavaScript-Study/Assignment/1회차
 
-2회차 과제(캐러셀 슬라이드) : https://bighuni.github.io/JS-Study/Assignment/2회차
+2회차 과제(캐러셀 슬라이드) : https://bighuni.github.io/JavaScript-Study/Assignment/2회차
 
-3회차 과제(움직이는 캐치볼) : https://bighuni.github.io/JS-Study/Assignment/3회차
+3회차 과제(움직이는 캐치볼) : https://bighuni.github.io/JavaScript-Study/Assignment/3회차
 
-4회차 과제(모달창) : https://bighuni.github.io/JS-Study/Assignment/4회차
+4회차 과제(모달창) : https://bighuni.github.io/JavaScript-Study/Assignment/4회차
 
-5회차 과제(오픈마켓 서비스) : https://bighuni.github.io/JS-Study/Assignment/5회차
+5회차 과제(오픈마켓 서비스) : https://bighuni.github.io/JavaScript-Study/Assignment/5회차
 
 <br>
 
