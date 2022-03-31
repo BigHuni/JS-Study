@@ -1,40 +1,69 @@
-const slideList = document.querySelector('.slide_list'); 
-const slideContents = document.querySelectorAll('.slide_content'); 
-const slideBtnNext = document.querySelector('.slide_btn_next'); // 다음 button
-const slideBtnPrev = document.querySelector('.slide_btn_prev'); // 이전 button
-const pagination = document.querySelector('.slide_pagination');
-const slideLen = slideContents.length; // 슬라이드 length
-const slideWidth = 400; // 슬라이드 width
-const slideSpeed = 300; // 슬라이드 speed
-slideList.style.width = slideWidth * (slideLen) + "px";
-let curIndex = 0; // 현재 슬라이드 index
+const slides = document.querySelector('.slide_list');
+const slide = document.querySelectorAll('.slide_list li');
+const slideCount = slide.length,
+      slideWidth = 200,
+      slideMargin = 30;
 
+const prevBtn = document.querySelector('.btn_prev');
+const nextBtn = document.querySelector('.btn_next');
 
-slideBtnNext.addEventListener('click', function() {  // 다음 버튼
-if (curIndex < slideLen - 1) {
-slideList.style.transition = slideSpeed + "ms";
-slideList.style.transform = "translate3d(-" + (slideWidth * (curIndex + 1)) + "px, 0px, 0px)";
-} else {
-slideList.style.transform = "translate3d(0px, 0px, 0px)";
-curIndex = -1;
+let currentIndex = 0;
+
+cloneList();
+
+function cloneList() {
+  for(let i = 0; i < slideCount; i++) {
+    const cloneSlide = slide[i].cloneNode(true);
+    cloneSlide.classList.add('clone');
+    slides.appendChild(cloneSlide);
+  }
+
+  for(let i = slideCount -1; i >= 0; i--) {
+    const cloneSlide = slide[i].cloneNode(true);
+    cloneSlide.classList.add('clone');
+    slides.prepend(cloneSlide);
+  }
+    totalWidth();
+    setInitialPosition();
+    
+    setTimeout(function() {
+      slides.classList.add('animated');
+    }, 100);
 }
-curSlide = slideContents[++curIndex];
+
+function totalWidth() {
+const currentSlides = document.querySelectorAll('.slide_list li');
+const newSlideCount = currentSlides.length;
+const newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin +'px';
+slides.style.width = newWidth;
+
+function setInitialPosition() {
+  const initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
+  slides.style.transform = 'translateX(' + initialTranslateValue + 'px)';
+}
+    
+prevBtn.addEventListener('click', function() {
+    moveSlide(currentIndex - 1);
 });
 
+nextBtn.addEventListener('click', function() {
+    moveSlide(currentIndex + 1);
+});
 
-slideBtnPrev.addEventListener('click', function() { // 이전 버튼
-    if (curIndex >= 0) {
-    slideList.style.transition = slideSpeed + "ms";
-    slideList.style.transform = "translate3d(-" + (slideWidth * curIndex) + "px, 0px, 0px)";
+function moveSlide(num){
+  slides.style.left = -num * (slideWidth + slideMargin) + 'px';
+  currentIndex = num;
+  
+  if(currentIndex == slideCount || currentIndex == -slideCount) {
+      setTimeout(function() {
+          slides.classList.remove('animated');
+          slides.style.left = '0px';
+          currentIndex = 0;
+      }, 500);
+
+      setTimeout(function() {
+          slides.classList.add('animated');
+      }, 600);
     }
-    if (curIndex === 0) {
-    setTimeout(function() {
-    slideList.style.transition = "0ms";
-    slideList.style.transform = "translate3d(-" + (slideWidth * slideLen) + "px, 0px, 0px)";
-    }, slideSpeed);
-    curIndex = slideLen;
-    }
-    curSlide.classList.remove('slide_active');
-    curSlide = slideContents[--curIndex];
-    curSlide.classList.add('slide_active');
-    });
+  }
+}
